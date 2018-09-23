@@ -13,14 +13,14 @@ namespace TechTalkLambda {
 
     private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-    // This is bad pracitce, IRL.
+    // This is bad practice, IRL.
     private const string DbName = "db";
 
     public static void Main(string[] args) {
       Log.Info("Application started.");
 
-      Log.Debug("Heros:");
-      foreach (var hero in GetHeros()) {
+      Log.Debug("Heroes:");
+      foreach (var hero in GetHeroes()) {
         var heroId = Convert.ToInt32(hero["Id"]);
 
         Log.Debug($" -- {hero["Name"]} is {hero["Alias"]} ");
@@ -93,8 +93,8 @@ namespace TechTalkLambda {
       return data;
     }
 
-    private static IEnumerable<Dictionary<string, object>> GetHeros() {
-      return GetData( "SELECT ID, NAME, ALIAS FROM HEROS");
+    private static IEnumerable<Dictionary<string, object>> GetHeroes() {
+      return GetData( "SELECT ID, NAME, ALIAS FROM HEROES");
     }
 
     private static IEnumerable<Dictionary<string, object>> GetLocations(int heroId) {
